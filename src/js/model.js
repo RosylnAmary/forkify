@@ -2,6 +2,7 @@ import { async } from 'regenerator-runtime';
 import { API_URL, RES_PER_PAGE, KEY } from './config';
 // import { getJSON, sendJSON } from './helpers';
 import { AJAX } from './helpers';
+import { click } from './views/addRecipeView';
 
 export const state = {
   recipe: {},
@@ -25,11 +26,11 @@ const createRecipeObject = function (data) {
     servings: recipe.servings,
     cookingTime: recipe.cooking_time,
     ingredients: recipe.ingredients,
-    // jeśłi istnieje recipe.key to && jeśłi nie istnieje, to nic sie nie wydarzy
+    // jeśłi istnieje recipe.key to && jeśli nie istnieje, to nic sie nie wydarzy
     ...(recipe.key && { key: recipe.key }),
   };
+  console.log(recipe);
 };
-
 export const loadRecipe = async function (id) {
   try {
     const data = await AJAX(`${API_URL}${id}?key=${KEY}`);
@@ -113,18 +114,26 @@ init();
 
 export const uploadRecipe = async function (newRecipe) {
   try {
-    const ingredients = Object.entries(newRecipe)
-      .filter(entry => entry[0].startsWith('ingredient') && entry[1] !== '')
-      .map(ing => {
-        const ingArr = ing[1].split(',').map(el => el.trim());
-        if (ingArr.length !== 3)
-          throw new Error(
-            'Wrong ingredient format. Please use the corect format'
-          );
-        const [quantity, unit, description] = ingArr;
+    let ingredients = [];
 
-        return { quantity: quantity ? +quantity : null, unit, description };
-      });
+    for (let i = 1; i <= click; i++) {
+      let ing = Object.entries(newRecipe).filter(entry =>
+        entry[0].includes(`-${i}`)
+      );
+      let quantity = ing.flat()[1];
+      let unit = ing.flat()[3];
+      let description = ing.flat()[5];
+      let ingredient = {
+        quantity,
+        unit,
+        description,
+      };
+
+      ingredients.push(ingredient);
+    }
+
+    console.log(ingredients);
+
     const recipe = {
       title: newRecipe.title,
       source_url: newRecipe.sourceUrl,

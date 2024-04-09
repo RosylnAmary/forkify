@@ -57,8 +57,19 @@
       font-size: 1.5rem;
       font-weight: 600;
       color: inherit;
+      text-wrap: nowrap;
     }
-
+    .ingredient--input {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      width: 100%;
+      justify-content: space-between;
+      .ammount {
+        display: flex;
+        gap: 0.5rem;
+      }
+    }
     & input {
       font-size: 1.5rem;
       padding: 0.8rem 1rem;
@@ -76,7 +87,6 @@
         background-color: $color-grey-light-1;
       }
     }
-
     & button {
       grid-column: 1 / span 2;
       justify-self: center;

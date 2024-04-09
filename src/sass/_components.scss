@@ -22,6 +22,15 @@
   }
 }
 
+.btn--add-ing {
+  margin: 2rem auto;
+  max-width: 12rem;
+  justify-content: center;
+  :first-child {
+    margin-right: 0;
+  }
+}
+
 .btn {
   @extend %btn;
 
