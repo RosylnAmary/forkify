@@ -23,10 +23,7 @@ class ResultsView extends View {
     this._hideResults.addEventListener('click', this.closeResults.bind(this));
   }
   _addHandlerShowRecipe() {
-    this._parentDivElement.addEventListener(
-      'click',
-      this.closeResults.bind(this)
-    );
+    this._parentElement.addEventListener('click', this.closeResults.bind(this));
   }
   closeResults() {
     console.log(this);
