@@ -68,6 +68,9 @@
     display: flex;
     align-items: center;
     padding: 7.5rem 8rem 3.5rem 8rem;
+    @media (max-width: $bp-small) {
+      padding: 7.5rem 6rem 3.5rem 6rem;
+    }
   }
 
   &__info {
@@ -136,6 +139,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 3rem;
     list-style: none;
+    @media (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__ingredient {

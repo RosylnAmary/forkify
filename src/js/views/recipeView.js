@@ -19,9 +19,6 @@ class RecipeView extends View {
       if (+updateTo > 0) handler(+updateTo);
     });
   }
-  // to samo co powyżej
-  // window.addEventListener('hashchange', controlRecipes);
-  // window.addEventListener('load', controlRecipes);
 
   addHandlerAddBookmark(handler) {
     this._parentElement.addEventListener('click', function (e) {

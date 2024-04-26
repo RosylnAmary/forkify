@@ -26,7 +26,6 @@ const createRecipeObject = function (data) {
     servings: recipe.servings,
     cookingTime: recipe.cooking_time,
     ingredients: recipe.ingredients,
-    // jeśłi istnieje recipe.key to && jeśli nie istnieje, to nic sie nie wydarzy
     ...(recipe.key && { key: recipe.key }),
   };
   console.log(recipe);
@@ -61,6 +60,9 @@ export const loadSearchResults = async function (query) {
       };
     });
     state.search.page = 1;
+    document
+      .querySelector('.search-results')
+      .classList.add('search-results-open');
   } catch (err) {
     throw err;
   }

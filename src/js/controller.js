@@ -48,7 +48,6 @@ const controlSearchResults = async function () {
     await model.loadSearchResults(query);
 
     // Render result
-    // resultsView.render(model.state.search.results);
     resultsView.render(model.getSearchResultsPage());
 
     // Render pagination
@@ -69,7 +68,6 @@ const controlServings = function (newServings) {
   // Update the recipe serving (in state)
   model.updateServings(newServings);
   // Update RecipeView
-  // recipeView.render(model.state.recipe);
   recipeView.update(model.state.recipe);
 };
 
