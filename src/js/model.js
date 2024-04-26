@@ -61,6 +61,9 @@ export const loadSearchResults = async function (query) {
       };
     });
     state.search.page = 1;
+    document
+      .querySelector('.search-results')
+      .classList.add('search-results-open');
   } catch (err) {
     throw err;
   }

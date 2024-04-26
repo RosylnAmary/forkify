@@ -136,6 +136,9 @@
     grid-template-columns: 1fr 1fr;
     gap: 2.5rem 3rem;
     list-style: none;
+    @media (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+    }
   }
 
   &__ingredient {

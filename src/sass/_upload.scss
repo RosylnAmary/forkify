@@ -46,12 +46,18 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 4rem 6rem;
-
+  @media (max-width: $bp-small) {
+    grid-template-columns: 1fr;
+    gap: 1rem 2rem;
+  }
   &__column {
     display: grid;
     grid-template-columns: 1fr 2.8fr;
     align-items: center;
     gap: 1.5rem;
+    @media (max-width: $bp-small) {
+      grid-template-columns: 1fr;
+    }
 
     & label {
       font-size: 1.5rem;
